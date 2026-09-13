@@ -7,12 +7,12 @@ import java.util.Random;
 
 @Tag("smoke")
 public class Testdz2Class {
-    @BeforeAll
-    static void start () {
+    @BeforeEach
+    void start () {
         System.out.println("======================== Test method start");
     }
-    @AfterAll
-    static void finish () {
+    @AfterEach
+    void finish () {
         System.out.println("Test method end ========================");
     };
     public static int [] randomArray() {
@@ -30,11 +30,13 @@ public class Testdz2Class {
     void isEvenTest() {
         Random random = new Random();
         int n = random.nextInt(0, 100);
+        Methods.isEven(n);
     }
     @RepeatedTest(20)
     void checkAccess () {
         Random random = new Random();
         int age = random.nextInt(0,99);
+        Methods.checkAccess(age);
     }
     @ParameterizedTest
     @MethodSource ("randomArray")

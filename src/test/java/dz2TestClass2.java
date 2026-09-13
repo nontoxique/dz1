@@ -15,7 +15,7 @@ public class dz2TestClass2 {
         int n = random.nextInt(0, 100);
         boolean expected = (n % 2 == 0);
         boolean result = Methods.isEven(n);
-        if (expected = result) {
+        if (expected == result) {
             System.out.println("TEST PASSED");
         } else {
             System.out.println("TEST FAILED");
