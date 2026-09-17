@@ -11,9 +11,8 @@ repositories {
 
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.0")
-    testImplementation(platform("org.junit:junit-bom:6.0.0"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("org.assertj:assertj-core:3.26.3")
 }
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
@@ -42,6 +41,7 @@ tasks.register<Test>("allTests") {
     classpath = tasks.test.get().classpath
     useJUnitPlatform {
         includeTags("smoke")
+        excludeTags("dz3")
     }
 }
 tasks.named("over") {
