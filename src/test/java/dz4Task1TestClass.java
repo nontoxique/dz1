@@ -18,7 +18,7 @@ public class dz4Task1TestClass {
             .log(LogDetail.ALL)
             .build();
     @Test
-    void Test1() {
+    void Testempty200() {
         given()
                 .baseUri("http://localhost:8080")
                 .queryParam("page",0)
@@ -31,7 +31,7 @@ public class dz4Task1TestClass {
                 .body("goods", empty());
     }
     @Test
-    void Test2() {
+    void Testempty200spec() {
         given()
                 .spec(basicRQ)
                 .queryParam("size",10)
@@ -45,7 +45,7 @@ public class dz4Task1TestClass {
     }
     @Test
 
-    void Test3() {
+    void Testaddandget() {
         String name = "kekus7";
         double price = 7000;
         Map<String, Object> body = Map.of(
@@ -79,7 +79,7 @@ public class dz4Task1TestClass {
         }
     }
         @Test
-        void Test4() {
+        void Testaddandgetassertj() {
             String name = "kekus8";
             double price = 7000;
             Map<String, Object> body = Map.of(

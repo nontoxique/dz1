@@ -18,7 +18,7 @@ public class dz4Task2TestClass {
             .build();
 
     @Test
-    void Testaddproductsucces() {
+    void Testaddproductsuccess() {
         String name = "kekus7";
         double price = 7000;
         Map<String, Object> body = Map.of(
