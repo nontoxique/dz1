@@ -1,3 +1,4 @@
+import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.visible;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class dz5Task1TestClass {
@@ -33,7 +35,8 @@ driver.findElement(By.cssSelector("input#n-price")).sendKeys("1337");
 driver.findElement(By.cssSelector("#add-btn")).click();
 driver.findElement(By.cssSelector("div:nth-child(1) > a")).click();
 assertThat(driver.findElement(By.cssSelector("[data-name='newgood']:not([class='btn'])")))
-        .as("Новый товар не появился");
+        .as("Новый товар не появился")
+        .isNotNull();
     }
     @Test
     void addtocart () {

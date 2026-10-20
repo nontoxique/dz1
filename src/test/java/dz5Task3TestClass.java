@@ -103,7 +103,7 @@ public class dz5Task3TestClass {
         Selenide.element($("#username")).sendKeys("admin");
         Selenide.element($("#password")).sendKeys("secret123");
         Selenide.element($(".primary")).click();
-        $("#nm-"+ good1Id).sendKeys("renamedgood");
+        $("#nm-"+ good1Id).setValue("renamedgood");
         $("button.btn-upd[data-id='" + good1Id + "']").click();
         $("body > div.container > div:nth-child(1) > a").click();
         $("#card-"+good1Id).shouldHave(text("renamedgood"));
