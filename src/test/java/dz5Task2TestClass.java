@@ -1,8 +1,10 @@
+import Config.ConfigProvider;
 import com.codeborne.selenide.Selenide;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +18,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.restassured.RestAssured.given;
 
 public class dz5Task2TestClass {
+
+        @BeforeAll
+        static void setUpConfiguration() {
+            ConfigProvider.logConfig();
+        }
     private int good1Id;
 
     private int addgoodapi(String name, double price) {

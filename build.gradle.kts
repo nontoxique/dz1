@@ -19,6 +19,7 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-java:4.49.0")
     // Source: https://mvnrepository.com/artifact/com.codeborne/selenide
     implementation("com.codeborne:selenide:7.18.2")
+    implementation("org.aeonbits.owner:owner:1.0.12")
 }
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
