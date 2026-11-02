@@ -1,5 +1,6 @@
 package Config;
 
+import com.codeborne.selenide.Configuration;
 import org.aeonbits.owner.ConfigFactory;
 
 public class ConfigProvider {
@@ -7,6 +8,8 @@ public class ConfigProvider {
     public static final ProjectConfig CONFIG = ConfigFactory.create(ProjectConfig.class);
 
     public static void logConfig() {
+        Configuration.browser = CONFIG.browser();
+        Configuration.timeout = CONFIG.timeout();
         System.out.println("==================================================");
         System.out.println("[CONFIG] ПАРАМЕТРЫ ЗАПУСКА АВТОТЕСТОВ:");
         System.out.println("==================================================");
