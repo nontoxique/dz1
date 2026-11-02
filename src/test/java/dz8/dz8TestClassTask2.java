@@ -93,7 +93,7 @@ import static io.restassured.RestAssured.given;
                     .loginAs("admin", "secret123");
 
             adminPage.addNewGood("anothernewgood", "1337")
-                    .checkToastText("Товар успешно добавлен");
+                    .checkToastText("Товар успешно добавлен!");
         }
 
         @Test
