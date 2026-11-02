@@ -22,9 +22,9 @@ public class dz3Task2TestClass {
     void checkAccessTest() {
         Random random = new Random();
         int age = random.nextInt(0, 100);
-        assertThat(age)
+        assertThat(Methods.checkAccess(age))
                 .as("Возраст меньше минимально необходимого")
-                .isGreaterThan(18);
+                .isEqualTo("Allowed");
 
     }
 
@@ -32,9 +32,9 @@ public class dz3Task2TestClass {
     void isPostitveTest() {
         Random random = new Random();
         int n = random.nextInt(-100, 100);
-        assertThat(n)
+        assertThat(Methods.isPositive(n))
                 .as("Число отрицательное")
-                .isPositive();
+                .isTrue();
     }
 
     @ParameterizedTest

@@ -13,6 +13,13 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.assertj:assertj-core:3.26.3")
+    implementation("io.rest-assured:rest-assured:6.0.1")
+    testImplementation("com.fasterxml.jackson.core:jackson-databind:2.17.2")
+    // Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation("org.seleniumhq.selenium:selenium-java:4.49.0")
+    // Source: https://mvnrepository.com/artifact/com.codeborne/selenide
+    implementation("com.codeborne:selenide:7.18.2")
+    implementation("org.aeonbits.owner:owner:1.0.12")
 }
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
@@ -46,4 +53,12 @@ tasks.register<Test>("allTests") {
 }
 tasks.named("over") {
     dependsOn("allTests")
+}
+tasks.register<Test>("APItests") {
+    group = "Test"
+    testClassesDirs = tasks.test.get().testClassesDirs
+    classpath = tasks.test.get().classpath
+    useJUnitPlatform {
+        includeTags("APItestdz")
+    }
 }
