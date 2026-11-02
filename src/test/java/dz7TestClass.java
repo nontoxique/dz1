@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import static Config.config.CONFIG;
+import static Config.ConfigProvider.CONFIG;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static io.restassured.RestAssured.given;
@@ -71,6 +71,10 @@ public class dz7TestClass {
         SelenideElement firstcard = $x("//*[@id='card-" + good1Id + "']");
         firstcard.dragAndDrop(DragAndDropOptions.to(cartbutton));
         sleep(2000);
+        $("#open-cart-btn").click();
+        $("#cart-item-" + good1Id + " > div:nth-child(1) > b")
+                .as("Товар не появился в корзине")
+                .shouldHave(text(CONFIG.firstItemName()));
     }
 
     @Test

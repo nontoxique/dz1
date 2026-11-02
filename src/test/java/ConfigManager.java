@@ -1,4 +1,4 @@
-import static Config.config.CONFIG;
+import static Config.ConfigProvider.CONFIG;
     public class ConfigManager {
         public static void printConfigToConsole() {
             System.out.println("===== ЗАПУСК АВТОТЕСТОВ: КОНФИГУРАЦИЯ =====");

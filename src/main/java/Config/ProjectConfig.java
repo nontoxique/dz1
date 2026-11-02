@@ -34,11 +34,11 @@ public interface ProjectConfig extends Config {
     @Key("admin.password")
     String adminPassword();
 
-    @Key("first.item.name")
+    @Key("firstitem.name")
     @DefaultValue("good1")
     String firstItemName();
 
-    @Key("first.item.price")
+    @Key("firstitem.price")
     @DefaultValue("70")
     Integer firstItemPrice();
 }
