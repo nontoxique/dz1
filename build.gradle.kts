@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("io.qameta.allure") version "3.0.0"
 }
 
 group = "org.example"
@@ -20,6 +21,10 @@ dependencies {
     // Source: https://mvnrepository.com/artifact/com.codeborne/selenide
     implementation("com.codeborne:selenide:7.18.2")
     implementation("org.aeonbits.owner:owner:1.0.12")
+    // Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide
+    implementation("io.qameta.allure:allure-selenide:2.29.1")
+    // Source: https://mvnrepository.com/artifact/io.qameta.allure/allure-rest-assured
+    implementation("io.qameta.allure:allure-rest-assured:2.29.1")
 }
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
@@ -62,3 +67,19 @@ tasks.register<Test>("APItests") {
         includeTags("APItestdz")
     }
 }
+tasks.register<Test>("UItests") {
+    group = "Test"
+    testClassesDirs = tasks.test.get().testClassesDirs
+    classpath = tasks.test.get().classpath
+    useJUnitPlatform {
+        includeTags("UItestdz")
+    }
+}
+allure {
+    report {
+        dependencies {
+            allureRawResultElements(files(layout.buildDirectory.dir("allure-results")))
+        }
+    }
+}
+

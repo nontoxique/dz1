@@ -1,6 +1,9 @@
 package Config;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 
 public class ConfigProvider {
@@ -21,5 +24,12 @@ public class ConfigProvider {
         System.out.println("Стартовый товар: " + CONFIG.firstItemName());
         System.out.println("Цена товара:     " + CONFIG.firstItemPrice() + " руб.");
         System.out.println("==================================================");
+        SelenideLogger.addListener("AllureSelenide",
+                new AllureSelenide()
+                        .includeSelenideSteps(true)
+                        .screenshots(true)
+                        .savePageSource(true)
+        );
     }
+
 }

@@ -1,18 +1,13 @@
 package dz8.pages;
-import com.codeborne.selenide.SelenideElement;
-import dz8.pages.loginPage;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class mainPage {
-    private final SelenideElement openCartBtn = $("#open-cart-btn");
-    private final SelenideElement makeOrderBtn = $("#makeOrder");
-    private final SelenideElement totalPrice = $("#total-price");
-    private final SelenideElement adminLink = $("a[href='/admin']");
+public class MainPageAssert extends MainPage {
 
-    public mainPage clickAddButton(String goodName) {
+    public MainPageAssert clickAddButton(String goodName) {
         $("button[data-name='" + goodName + "']").click();
         return this;
     }
@@ -22,12 +17,12 @@ public class mainPage {
         return Double.parseDouble(priceAttr != null ? priceAttr : "0");
     }
 
-    public mainPage openCart() {
+    public MainPageAssert openCart() {
         openCartBtn.click();
         return this;
     }
 
-    public mainPage makeOrder() {
+    public MainPageAssert makeOrder() {
         makeOrderBtn.click();
         return this;
     }
@@ -44,8 +39,8 @@ public class mainPage {
         $("#card-" + goodId).shouldHave(text(expectedText));
     }
 
-    public loginPage clickAdminLink() {
+    public LoginPageAssert clickAdminLink() {
         adminLink.click();
-        return new loginPage();
+        return new LoginPageAssert();
     }
 }
